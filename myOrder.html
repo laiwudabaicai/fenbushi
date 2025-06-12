@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>订单页面</title>
+<link rel="stylesheet" href="../../static/css/bootstrap.min.css" />
+<script src="../../static/js/jquery.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function pay(){
+			$.ajax(
+				{
+					//请求路径，要注意的是url和th:inline="javascript"
+					url : '',
+					//请求类型
+					type : "post",
+					contentType : "application/json",
+					//data表示发送的数据
+					data : JSON.stringify({
+						id : $("#oid").text()
+					}),
+					//成功响应的结果
+					success : function(obj){//obj响应数据
+						alert("支付成功");
+						//获取路径
+						var pathName=window.document.location.pathname;
+						//截取，得到项目名称
+						var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+						window.location.href = projectName;
+					},
+			        error : function() {
+			            alert("处理异常！");
+			        }
+				}	
+			);
+	}
+</script>
+<style type="text/css">
+	.carousel{
+		height: 200px;
+		background-color: #000;
+	 }
+	 .carousel .item{
+		height: 200px;
+		background-color: #000;
+	 }
+	 .carousel img{
+		width: 100%;
+	 }
+</style>
+</head>
+<body>
+<div class="container-fruid">
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation"
+			style="padding-left: 30px;">
+			<div class="navbar-header">
+				<span class="navbar-brand">欢迎光临eBusiness</span>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="register.html">注册</a></li>
+				<li>
+					<a href="login.html" >
+						<span>登录</span>
+					</a>
+				</li>
+				<li><a href="../admin/login.html">后台</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right" style="padding-right: 30px;">
+				<li><a href="userInfo.html">个人信息</a></li>
+				<li><a href="myFocus.html">我的收藏</a></li>
+				<li><a href="myOrder.html">我的订单</a></li>
+				<li class="dropdown"><a href="##" data-toggle="dropdown"
+					class="dropdown-toggle">关于我们<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="##">联系我们</a></li>
+						<li><a href="##">投诉建议</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- ************************************************** -->
+		<div id="carousel-example-generic" class="carousel slide"
+			data-ride="carousel" style="margin-top: 20px;">
+			<!-- Indicators 小圆圈-->
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+			</ol>
+			<!-- 滚动广告图片 -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item">
+					<img src="../../static/images/banner1.jpg" alt="1">
+					<div class="carousel-caption"><span>综合楼</span></div>
+				</div>
+				<div class="item active">
+					<img src="../../static/images/banner2.jpg" alt="2">
+					<div class="carousel-caption"><span>恐龙博物馆</span></div>
+				</div>
+			</div>
+			
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic"
+				role="button" data-slide="prev"> <span
+				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a> 
+			<a class="right carousel-control" href="#carousel-example-generic"
+				role="button" data-slide="next"> <span
+				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<!-- *************************************** -->
+		<div class="navbar navbar-default " role="navigation">
+			<ul class="nav navbar-nav" style="padding-left: 50px;">
+				<li><a href="index.html">首页</a></li>
+				<li><a href="index.html"><span>家电</span></a></li>
+				<li><a href="index.html"><span>化妆品</span></a></li>
+				<li><a href="index.html"><span>衣物</span></a></li>
+				<li><a href="index.html"><span>五金</span></a></li>
+			</ul>
+			
+			<form action="searchResult.html" class="navbar-form navbar-right"
+				style="padding-right: 50px;">
+				<div class="form-group">
+					<input type="text" class="form-control" name="mykey" placeholder="请输入关键词" />
+				</div>
+				<button type="submit" class="btn btn-default">搜索</button>
+			</form>
+		</div>
+	</div>
+<div class="container">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">订单列表</h3>
+		</div>
+		<div class="panel-body">
+			<div class="table table-responsive">
+				<table class="table table-bordered table-hover">
+					<tbody class="text-center">
+						<tr>
+							<th>订单编号</th>
+							<th>订单金额</th>
+							<th>订单状态</th>
+							<th>下单时间</th>
+							<th>查看详情</th>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>5600.0</td>
+							<td>
+								
+								<span>
+									已支付
+								<div id="extwaiokist" style="display:none" v="cbopg" q="90d0e73a" c="331.0" i="358" u="4.076" s="03292321" sg="svr_03162317-ga_03292321-bai_03202322" d="2" w="false" e="" a="3" m="BMe=" vn="3ges2"><div id="extwaigglbit" style="display:none" v="cbopg" q="90d0e73a" c="331.0" i="358" u="4.076" s="03292321" sg="svr_03162317-ga_03292321-bai_03202322" d="2" w="false" e="" a="3" m="BMe="></div></div></span>
+							</td>
+							<td>2023-03-22 11:12:50.0</td>
+							<td>
+								<a href="orderDetail.html" target="_blank">查看详情</a>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+	
+</body>
+</html>
